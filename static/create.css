@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f0ff; /* 밝은 파란색 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #ffffff;
+    border: 2px solid #007BFF; /* 대표색 사용 */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+h1 {
+    color: #007BFF; /* 대표색 */
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    color: #0056b3; /* 대표색의 짙은 변형 */
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="url"],
+input[type="file"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #007BFF; /* 대표색 */
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #007BFF; /* 대표색 */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* 대표색의 짙은 변형 */
+    transform: scale(1.05);
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.alert {
+    position: fixed !important;
+    top: 15px !important;
+    right: 15px !important;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Chat with Documents</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>🤖 Chat with Documents</h1>
+        <a href="{{ url_for('admin') }}" class="settings-link">⚙️</a>
+    </div>
+    <h3>{{ model_type }} : {{ model_name }}</h3>
+
+    <div id="chat-container">
+        <div id="chat"></div>
+        <div class="input-container">
+            <input type="text" id="query" placeholder="Type your question here...">
+            <button onclick="sendQuery()">Send</button>
+        </div>
+    </div>
+
+    <!-- 문서 리스트로 가는 버튼 추가 -->
+    <div class="button-container">
+        <button onclick="window.location.href='{{ url_for('list') }}'">📄 문서 리스트</button>
+        <button onclick="updateDoc()">🔄 문서 갱신</button>
+        <button onclick="window.location.href='{{ url_for('create_doc') }}'">📝 문서 추가</button>
+    </div>
+
+    <script>
+        function sendQuery() {
+            const queryText = $('#query').val();
+            if (!queryText) return;
+            $('#query').val('');
+            $('#chat').append('<div class="message user">You: ' + queryText + '</div>');
+            $.ajax({
+                url: '/query',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ query_text: queryText }),
+                success: function(response) {
+                    $('#chat').append('<div class="message bot">Bot: ' + response.response + '</div>');
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                }
+            });
+        }
+
+        function updateDoc() {
+            $.ajax({
+                url: '/doc/update',
+                method: 'POST',
+                success: function(response) {
+                    alert('성공적으로 업데이트 하였습니다.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
