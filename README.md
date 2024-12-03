@@ -89,3 +89,13 @@ python app.py
 ## 📷 구동 화면
 
 ### 메인 화면 및 챗봇
+![image](https://github.com/seungyong/seoil-lag/blob/main/image/main.png)
+
+### 챗봇 선택
+![image](https://github.com/seungyong/seoil-lag/blob/main/image/chat_chage.png)
+
+### 문서 확인
+![image](https://github.com/seungyong/seoil-lag/blob/main/image/list.png)
+
+### 문서 업로드
+![image](https://github.com/seungyong/seoil-lag/blob/main/image/upload.png)
